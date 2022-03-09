@@ -203,7 +203,7 @@ extension ExpandableTableView: UITableViewDataSource, UITableViewDelegate {
         guard let delegate = self.expandableDelegate else {
             return .insert
         }
-        return delegate.tableView(tableView, editingStyleForRowAt: indexPath)
+        return delegate.expandableTableView(tableView, editingStyleForRowAt: indexPath)
     }
     
     
@@ -211,7 +211,7 @@ extension ExpandableTableView: UITableViewDataSource, UITableViewDelegate {
         guard let delegate = self.expandableDelegate else {
            return true
         }
-        return delegate.tableView(tableView, shouldIndentWhileEditingRowAt: indexPath)
+        return delegate.expandableTableView(tableView, shouldIndentWhileEditingRowAt: indexPath)
     }
     
     
