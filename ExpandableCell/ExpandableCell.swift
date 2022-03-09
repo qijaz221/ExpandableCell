@@ -58,6 +58,7 @@ open class ExpandableCell: UITableViewCell {
 
     func close() {
         self.isOpen = false
+        self.initialExpansionAllowed = true
         if highlightAnimation == .animated {
             UIView.animate(withDuration: 0.3) {[weak self] in
                 self?.arrowImageView.layer.transform = CATransform3DMakeRotation(CGFloat(Double.pi), 0.0, 0.0, 0.0)
