@@ -46,7 +46,7 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-//        tableView.openAll()
+        self.tableView.setEditing(true, animated: true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -91,6 +91,7 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: ExpandableDelegate {
+    
     
     func expandableTableView(_ expandableTableView: ExpandableTableView, expandedCellsForRowAt indexPath: IndexPath) -> [UITableViewCell]? {
         switch indexPath.section {
@@ -248,6 +249,7 @@ extension ViewController: ExpandableDelegate {
         return true
     }
     
+   
     func expandableTableView(_ expandableTableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
 //        let cell = expandableTableView.cellForRow(at: indexPath)
 //        cell?.contentView.backgroundColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)

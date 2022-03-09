@@ -176,7 +176,7 @@ extension ExpandableTableView: UITableViewDataSource, UITableViewDelegate {
         guard let delegate = self.expandableDelegate else {
            return false
         }
-        return delegate.expandableTableView(tableView, canEditRowAt: indexPath)
+        return delegate.expandableTableView(self, canEditRowAt: indexPath)
     }
     
     
@@ -185,7 +185,7 @@ extension ExpandableTableView: UITableViewDataSource, UITableViewDelegate {
         guard let delegate = self.expandableDelegate else {
            return false
         }
-        return delegate.expandableTableView(tableView, canMoveRowAt: indexPath)
+        return delegate.expandableTableView(self, canMoveRowAt: indexPath)
     }
     
     
@@ -194,7 +194,7 @@ extension ExpandableTableView: UITableViewDataSource, UITableViewDelegate {
         guard let delegate = self.expandableDelegate else {
            return
         }
-        return delegate.expandableTableView(tableView, moveRowAt: sourceIndexPath, to: destinationIndexPath)
+        return delegate.expandableTableView(self, moveRowAt: sourceIndexPath, to: destinationIndexPath)
     }
     
     
@@ -203,7 +203,7 @@ extension ExpandableTableView: UITableViewDataSource, UITableViewDelegate {
         guard let delegate = self.expandableDelegate else {
             return .insert
         }
-        return delegate.expandableTableView(tableView, editingStyleForRowAt: indexPath)
+        return delegate.expandableTableView(self, editingStyleForRowAt: indexPath)
     }
     
     
@@ -211,7 +211,7 @@ extension ExpandableTableView: UITableViewDataSource, UITableViewDelegate {
         guard let delegate = self.expandableDelegate else {
            return true
         }
-        return delegate.expandableTableView(tableView, shouldIndentWhileEditingRowAt: indexPath)
+        return delegate.expandableTableView(self, shouldIndentWhileEditingRowAt: indexPath)
     }
     
     

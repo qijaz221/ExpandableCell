@@ -57,7 +57,22 @@ public protocol ExpandableDelegate: UIScrollViewDelegate {
     func expandableTableView(_ expandableTableView: UITableView, didUnhighlightRowAt indexPath: IndexPath)
 
     func expandableTableView(_ expandableTableView: UITableView, didCloseRowAt indexPath: IndexPath)
+    
+    func expandableTableView(_ expandableTableView: ExpandableTableView, canEditRowAt indexPath: IndexPath) -> Bool
+    
+    func expandableTableView(_ expandableTableView: ExpandableTableView, canMoveRowAt indexPath: IndexPath) -> Bool
+    
+    func expandableTableView(_ expandableTableView: ExpandableTableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle
+    
+    func expandableTableView(_ expandableTableView: ExpandableTableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool
+    
+    func expandableTableView(_ expandableTableView: ExpandableTableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath)
 }
+
+
+
+
+
 
 public extension ExpandableDelegate {
     func expandableTableView(_ expandableTableView: ExpandableTableView, didSelectRowAt indexPath: IndexPath) { }
@@ -100,18 +115,29 @@ public extension ExpandableDelegate {
     func expandableTableView(_ expandableTableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) { }
     func expandableTableView(_ expandableTableView: UITableView, didCloseRowAt indexPath: IndexPath) { }
     
-    func expandableTableView(_ expandableTableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+    
+    
+    func expandableTableView(_ expandableTableView: ExpandableTableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        
+    }
+    
+    
+    func expandableTableView(_ expandableTableView: ExpandableTableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .insert
     }
     
     
-    func expandableTableView(_ expandableTableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
-        return true
+    func expandableTableView(_ expandableTableView: ExpandableTableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        return false
     }
     
-    func expandableTableView(_ expandableTableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool { return false }
     
-    func expandableTableView(_ expandableTableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool { return false }
+    func expandableTableView(_ expandableTableView: ExpandableTableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
     
-    func expandableTableView(_ expandableTableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {}
+    
+    func expandableTableView(_ expandableTableView: ExpandableTableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
 }
