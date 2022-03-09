@@ -381,6 +381,14 @@ extension ExpandableTableView {
         }
     }
     
+    
+    public func resetData() {
+        let _ = self.expandableProcessor.deleteAllIndexPaths()
+        super.reloadData()
+    }
+    
+    
+    
     open override func reloadData() {
         if let delegate = expandableDelegate {
             for i in 0..<expandableProcessor.expandableDatasPerSection.count {
