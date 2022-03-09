@@ -13,6 +13,7 @@ open class ExpandableTableView: UITableView {
     public var expansionStyle: ExpandableTableView.ExpansionStyle = .multi
     public var autoReleaseDelegate: Bool = true
     public var autoRemoveSelection: Bool = true
+    public var toggleExpandOnClick: Bool = true
     fileprivate var expandableProcessor = ExpandableProcessor()
     fileprivate var formerIndexPath: IndexPath?
 
@@ -59,10 +60,12 @@ extension ExpandableTableView: UITableViewDataSource, UITableViewDelegate {
         if !expandableProcessor.isSelectable(at: indexPath, defaultValue: allowsSelection) || self.autoRemoveSelection {
             tableView.deselectRow(at: indexPath, animated: true)
         }
+        
         if !expandedData.isExpandedCell {
             delegate.expandableTableView(self, didSelectRowAt: indexPath)
-            
-            handleRowExpansion(at: indexPath)
+            if self.toggleExpandOnClick {
+                handleRowExpansion(at: indexPath)
+            }
         } else {
             delegate.expandableTableView(self, didSelectExpandedRowAt: indexPath)
             delegate.expandableTableView(self, expandedCell: expandedData.expandedCell, didSelectExpandedRowAt: indexPath)

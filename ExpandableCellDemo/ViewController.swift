@@ -33,6 +33,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         tableView.expandableDelegate = self
+        tableView.toggleExpandOnClick = false
         tableView.animation = .automatic
         
         tableView.register(UINib(nibName: "NormalCell", bundle: nil), forCellReuseIdentifier: NormalCell.ID)
@@ -181,11 +182,11 @@ extension ViewController: ExpandableDelegate {
     }
 
     func expandableTableView(_ expandableTableView: ExpandableTableView, didSelectRowAt indexPath: IndexPath) {
-//        print("didSelectRow:\(indexPath)")
+        print("didSelectRow:\(indexPath)")
     }
     
     func expandableTableView(_ expandableTableView: ExpandableTableView, didSelectExpandedRowAt indexPath: IndexPath) {
-//        print("didSelectExpandedRowAt:\(indexPath)")
+        print("didSelectExpandedRowAt:\(indexPath)")
     }
     
     func expandableTableView(_ expandableTableView: ExpandableTableView, expandedCell: UITableViewCell, didSelectExpandedRowAt indexPath: IndexPath) {
