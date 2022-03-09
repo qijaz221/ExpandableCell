@@ -99,4 +99,19 @@ public extension ExpandableDelegate {
 
     func expandableTableView(_ expandableTableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) { }
     func expandableTableView(_ expandableTableView: UITableView, didCloseRowAt indexPath: IndexPath) { }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .insert
+    }
+    
+    
+    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func expandableTableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool { return false }
+    
+    func expandableTableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool { return false }
+    
+    func expandableTableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {}
 }

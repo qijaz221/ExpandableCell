@@ -170,6 +170,51 @@ extension ExpandableTableView: UITableViewDataSource, UITableViewDelegate {
         }
     }
     
+    
+    
+    public func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        guard let delegate = self.expandableDelegate else {
+           return false
+        }
+        return delegate.expandableTableView(tableView, canEditRowAt: indexPath)
+    }
+    
+    
+    
+    public func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        guard let delegate = self.expandableDelegate else {
+           return false
+        }
+        return delegate.expandableTableView(tableView, canMoveRowAt: indexPath)
+    }
+    
+    
+    
+    public func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        guard let delegate = self.expandableDelegate else {
+           return
+        }
+        return delegate.expandableTableView(tableView, moveRowAt: sourceIndexPath, to: destinationIndexPath)
+    }
+    
+    
+    
+    public func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        guard let delegate = self.expandableDelegate else {
+            return .insert
+        }
+        return delegate.tableView(tableView, editingStyleForRowAt: indexPath)
+    }
+    
+    
+    public func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        guard let delegate = self.expandableDelegate else {
+           return true
+        }
+        return delegate.tableView(tableView, shouldIndentWhileEditingRowAt: indexPath)
+    }
+    
+    
 // Mark: Optional forward ScrollView methods
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         expandableDelegate?.scrollViewDidScroll?(scrollView)
