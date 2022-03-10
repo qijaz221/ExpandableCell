@@ -48,7 +48,7 @@ open class ExpandableCell: UITableViewCell {
 
     func open() {
         self.isOpen = true
-        self.initialExpansionAllowed = false
+        //self.initialExpansionAllowed = false
         if highlightAnimation == .animated {
             UIView.animate(withDuration: 0.3) {[weak self] in
                 self?.arrowImageView.layer.transform = CATransform3DMakeRotation(CGFloat(Double.pi), 1.0, 0.0, 0.0)
@@ -58,7 +58,7 @@ open class ExpandableCell: UITableViewCell {
 
     func close() {
         self.isOpen = false
-        self.initialExpansionAllowed = true
+        //self.initialExpansionAllowed = true
         if highlightAnimation == .animated {
             UIView.animate(withDuration: 0.3) {[weak self] in
                 self?.arrowImageView.layer.transform = CATransform3DMakeRotation(CGFloat(Double.pi), 0.0, 0.0, 0.0)
